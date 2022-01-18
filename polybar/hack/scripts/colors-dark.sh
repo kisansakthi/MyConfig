@@ -7,23 +7,23 @@ RFILE="$HOME/.config/polybar/hack/scripts/rofi/colors.rasi"
 # Change colors
 change_color() {
 	# polybar
-	sed -i -e 's/background = #.*/background = #141C21/g' $PFILE
-	sed -i -e 's/foreground = #.*/foreground = #FFFFFF/g' $PFILE
+	sed -i -e 's/background = #.*/background = #00000000/g' $PFILE
+	sed -i -e 's/foreground = #.*/foreground = #abb2bf/g' $PFILE
 	sed -i -e "s/primary = #.*/primary = $AC/g" $PFILE
-	
+
 	# rofi
 	cat > $RFILE <<- EOF
 	/* colors */
 
 	* {
 	  al:    #00000000;
-	  bg:    #141C21FF;
+	  bg:    #282c34;
 	  ac:    ${AC}FF;
 	  se:    ${AC}26;
 	  fg:    #FFFFFFFF;
 	}
 	EOF
-	
+
 	polybar-msg cmd restart
 }
 
@@ -76,7 +76,7 @@ elif  [[ $1 = "--purple" ]]; then
 	AC="#8e24aa"
 	change_color
 elif  [[ $1 = "--red" ]]; then
-	AC="#e53935"
+	AC="#e06c75"
 	change_color
 elif  [[ $1 = "--teal" ]]; then
 	AC="#00897b"
